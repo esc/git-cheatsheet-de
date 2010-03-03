@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[10pt,            % Schriftgröße {{{
+\documentclass[9pt,            % Schriftgröße {{{
                a4paper,         % A4
                landscape,
                halfparskip,
@@ -159,13 +159,69 @@
 
 \begin{tikzpicture}
   \draw
-  (0,0) node[right,text width=6.5cm,rounded corners,fill=gray!15,inner sep=1ex]
-  {\emph{Das ist die erste Box}}
-  (7cm,0) node[right,text width=6.5cm,rounded corners,fill=gray!15,inner sep=1ex]
-  {\emph{... und das die Zweite! :-)}}
-  (14cm,-14cm) node[right,text width=6.5cm,rounded corners,fill=gray!15,inner sep=1ex]
-  {\subsubsection*{Überschrift}
-  \emph{Die hier ist rechts unten!}};
+  (0,0) node[text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  {
+    \subsubsection*{Repositories klonen oder erstellen}
+    \begin{tabular}{ll}
+    \texttt{git clone git://}\ldots & Klonen (Git-Protokoll)\\
+    \texttt{git clone ssh://}\ldots & Klonen (SSH)
+    \vspace*{.2cm}\\
+    \texttt{cd \emph{projekt}} & \\
+    \texttt{git init} & Neues Repository \\
+    \texttt{git add .} & erstellen\\
+    \texttt{git commit} &
+    \end{tabular}
+  }
+  ++(0,-1.9cm) node[below,text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  {
+    \subsubsection*{Änderungen untersuchen}
+    \begin{tabular}{ll}
+    \texttt{git log} & Zusammenfassung der Änderungen\\
+    \texttt{git show} & Detaillierte Ansicht von Commit \emph{id}\\
+    \texttt{git diff} & Unterschiede mit \texttt{diff} anzeigen\\
+    \texttt{git blame} & Wer hat welche Zeile geändert?\\
+    \texttt{gitk -{}-all} & Grafische Ansicht\\
+    \texttt{tig} & Curses-Frontend für Git
+    \end{tabular}
+  }
+  ++(0,-3.5cm) node[below,text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  {
+    \subsubsection*{Nächsten Commit vorbereiten}
+    \begin{tabular}{ll}
+    \texttt{git add} & Datei hinzufügen\\
+    \texttt{git add -p} & Teile einer Datei hinzufügen\\
+    \texttt{git rm} & Datei löschen\\
+    \texttt{git mv} & Datei verschieben\\
+    \texttt{git commit} & Commit erstellen\\
+    \ldots\quad\texttt{-{}-amend} & Letzten Commit verbessern\\
+    \end{tabular}
+  }
+  ++(0,-3.5cm) node[below,text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  {
+    \subsubsection*{Index vs. Working Directory}
+    \begin{tabular}{ll}
+    \texttt{git diff -{}-cached} & Änderung zwischen \emph{Working}\\
+                                 & \emph{Directory} und Index\\
+    \texttt{git rm -{}-cached} & Datei nicht mehr beachten\\
+    \texttt{git reset \emph{ref}} & Den Index auf \emph{ref} setzen;\\
+                                  & \emph{Working Dir.} unverändert\\
+    \texttt{git checkout} & Index und \emph{WD} ändern\\
+    \end{tabular}
+  }
+  (8cm,0) node[text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  {
+    \subsubsection*{Referenzen}
+    \begin{tabular}{ll}
+    \texttt{HEAD} & Letzter Commit\\
+    \texttt{HEAD\^{}} & Vorletzter Commit\\
+    \texttt{HEAD\~{}\emph{n}} & \emph{n}-ter letzter Commit\\
+    \texttt{master} & Branch-Name\\
+    \texttt{v2.6.17} & Tag-Name (z.\,B. für Versionierung)\\
+    \texttt{a..b} & Alle Commits zwischen \texttt{a} und \texttt{b}\\
+    \texttt{44ac95d}\ldots & Objekt-Referenz (Commit, Tree, etc.)\\
+    \end{tabular}
+  }
+  ;
 \end{tikzpicture}
 
 
