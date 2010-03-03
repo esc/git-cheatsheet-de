@@ -1,0 +1,177 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[10pt,            % Schriftgröße {{{
+               a4paper,         % A4
+               landscape,
+               halfparskip,
+               oneside,         % Einseitig
+               DIV12,           % Papiergröße
+              ]{scrartcl} %%% }}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Pakete {{{
+\usepackage[utf8]{inputenc}         % Umlaute etc.
+\usepackage[T1]{fontenc}            % T1-kodierte Fonts
+\usepackage{ae,aecompl}             % Kodierung für PDF
+\usepackage{ngerman}                % Deutsche Trennungen,
+                                    % dt. Begriffe
+\usepackage{setspace}               % Single- oder Onehalfspacing
+\setcounter{tocdepth}{4}            % 4 Hirarchien im Inhaltsv.
+\usepackage{times}                  % Times als Schrift
+\usepackage{amsmath,amssymb,amstext}% Mathematische Symbole
+\usepackage{exscale}                % Skalierung von Summen-c und Int.-zeichen
+\usepackage{url}                    % Darstellung von URLs
+\usepackage{calc}
+
+%%% Optional, je nach Dokument
+% \usepackage{listings}             % Quelltext-Listings
+% \usepackage{units}                % Technische Units
+% \usepackage{psfrag}               % Ersetzts PS-Schriften
+  \usepackage{color}                % Farben in LaTeX
+% \usepackage{floatflt}             % Textumflossene Bilder...
+% \usepackage{picins}               % Textumflossene Bilder
+  \usepackage{textcomp}             % Spezielle Zeichen
+  \usepackage{gensymb}              % Spezielle Zeichen
+% \usepackage{eurosym}              % Euro-Symbol
+% \usepackage{currvita}             % Befehle für CVs
+  \usepackage{ifpdf}                % Wird ein PDF erstellt?
+
+%%% Layout
+\usepackage{scrpage2}               % KOMA-Überschriften und -Fußzeilen.
+%%% }}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% PDF {{{
+
+\ifpdf
+  \usepackage[pdftex]{graphicx}
+  \DeclareGraphicsExtensions{.pdf}
+  \pdfcompresslevel=9
+  \usepackage[%
+    pdftex=true,
+    backref=true,
+    colorlinks=true,
+    bookmarks=true,
+    breaklinks=true,
+    linktocpage=true,
+    bookmarksopen=false,
+    bookmarksnumbered=false,
+    pdfpagemode=None
+  ]{hyperref}
+  \hypersetup{
+    pdftitle={},
+    pdfauthor={Julius Plenz},
+    pdfsubject={},
+    pdfcreator={LaTeX2e and pdfLaTeX},
+    pdfproducer={},
+    pdfkeywords={}
+  }
+\else
+  \usepackage[dvips]{graphicx}
+  \DeclareGraphicsExtensions{.eps}
+  % \usepackage[%
+  %   dvips,
+  %   breaklinks=true,
+  %   colorlinks=false
+  % ]{hyperref}
+\fi
+
+%%% }}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Eigene Funktionen {{{
+%%% Beispiel:  \bild{200pt}{foo}{That's a foo\ldots}
+\newcommand{\bild}[3]{
+  \begin{figure}
+    \includegraphics[width=#1, keepaspectratio=true]{#2}
+    \caption{#3}
+    \label{#2}
+  \end{figure}
+}
+
+%% \floatimg{filename}{caption+label}{r/l}{8cm}
+\newcommand{\floatimg}[4]{
+  \piccaption{#2}
+  \parpic[#3]{\includegraphics[width=#4]{#1}}
+}
+%%% }}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Pagestyle {{{
+% \pagestyle{scrheadings}
+% \pagestyle{fancyhdrs}
+  \pagestyle{empty}
+%%% }}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Seitenkopf- und -Fußzeilen {{{
+ \automark[subsection]{section} % \left- und \rightmark bekommen Inhalt
+%%% Oben: Links, Mitte, Rechts
+ \ihead[]{}
+ \chead[]{}
+ \ohead[]{}
+%%% Unten: Links, Mitte, Rechts
+ \ifoot[]{}
+ \cfoot[]{}
+ \ofoot[]{}
+%%% }}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,decorations,shadows}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Sonstiges {{{
+% \setlength{\parindent}{17pt}      % Einzug 17pt,
+% \setlength{\parskip}{2pt}         % keine Leerzeilen.
+
+% \textwidth      127mm             % Textbreite
+% \textheight     235mm             % Texthöhe
+% \topmargin     -5mm               % Abstand oben
+% \oddsidemargin  7mm               % Abstand Links, onepage
+
+%\onehalfspacing                    % Zeilenabstand: Bei korrektur,
+ \singlespacing                     % bei Abgabe
+
+% Punkt- und Komma Abstände bei Tausendern/
+% Dezimalzahlen ans deutsche anpassen!
+ \mathcode`,="013B
+ \mathcode`.="613A
+
+ \setlength{\emergencystretch}{2em} % Notfallsstreckung
+ \addtolength{\voffset}{10pt}
+
+% Kommandoänderungen
+ \renewcommand{\figurename}{Abb.} % Bildunterschriften: Abb. anstatt Fig.
+%\renewcommand*{\cvheadingfont}{\raggedleft\Huge\bfseries} % CV: Überschriften
+%%% }}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Inhalt {{{
+
+
+\begin{tikzpicture}
+  \draw
+  (0,0) node[right,text width=6.5cm,rounded corners,fill=gray!15,inner sep=1ex]
+  {\emph{Das ist die erste Box}}
+  (7cm,0) node[right,text width=6.5cm,rounded corners,fill=gray!15,inner sep=1ex]
+  {\emph{... und das die Zweite! :-)}}
+  (14cm,-14cm) node[right,text width=6.5cm,rounded corners,fill=gray!15,inner sep=1ex]
+  {\subsubsection*{Überschrift}
+  \emph{Die hier ist rechts unten!}};
+\end{tikzpicture}
+
+
+%%% }}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+%%% vim:set fdm=marker:
