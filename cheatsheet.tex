@@ -4,7 +4,7 @@
                landscape,
                halfparskip,
                oneside,         % Einseitig
-               DIV12,           % Papiergröße
+               DIV34,           % Papiergröße
               ]{scrartcl} %%% }}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -207,8 +207,9 @@
                                   & \emph{Working Dir.} unverändert\\
     \texttt{git checkout} & Index und \emph{WD} ändern\\
     \end{tabular}
-  }
-  (8cm,0) node[text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  };
+  \draw
+  (8cm,-8pt) node[text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   {
     \subsubsection*{Referenzen}
     \begin{tabular}{ll}
@@ -218,7 +219,32 @@
     \texttt{master} & Branch-Name\\
     \texttt{v2.6.17} & Tag-Name (z.\,B. für Versionierung)\\
     \texttt{a..b} & Alle Commits zwischen \texttt{a} und \texttt{b}\\
+    \texttt{master..} & Commits seit \emph{v2.6.0}\\
     \texttt{44ac95d}\ldots & Objekt-Referenz (Commit, Tree, etc.)\\
+    \end{tabular}
+  }
+  ++(0,-2.1cm) node[below,text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  {
+    \subsubsection*{Branches}
+    \begin{tabular}{ll}
+    \texttt{git branch \emph{name}} & Branch \emph{name} erstellen\\
+    \texttt{git checkout \emph{name}} & Branch \emph{name} auschecken\\
+    \texttt{git merge \emph{feature}} & \emph{feature} integrieren\\
+    \texttt{git rebase \emph{basis}} & Aktuellen Branch auf neue \\
+                                     & \emph{basis} aufbauen\\
+    \ldots\;\texttt{-{}-interactive} & Commits ordnen und anpassen\\
+    \end{tabular}
+  }
+  ++(0,-3.3cm) node[below,text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  {
+    \subsubsection*{Merge-Konflikte beheben}
+    \begin{tabular}{ll}
+    \texttt{git diff -{}-ours} & Unterschied zu \emph{unserer}\\
+    \ldots\quad\texttt{-{}-theirs} & \ldots{} und \emph{deren} Version\\
+    \texttt{gitk -{}-merge} & Relevate Commits untersuchen\\
+    \texttt{git mergetool} & Three-Way-Merge\\
+    \texttt{git add}, \texttt{commit} \ldots & Änderungen aufnehmen\\
+    \texttt{git reset} & Merge abbrechen\\
     \end{tabular}
   }
   ;
