@@ -4,7 +4,7 @@
                landscape,
                halfparskip,
                oneside,         % Einseitig
-               DIV34,           % Papiergröße
+               DIV94,           % Papiergröße
               ]{scrartcl} %%% }}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -158,6 +158,11 @@
 
 
 \begin{tikzpicture}
+  \draw (0,1) node[anchor=north west,font=\Huge\bf\selectfont]{Git -- der Spickzettel}
+  (.2cm,.3cm) -- (28.2cm,.3cm)
+  (28.2cm,.7cm) node[font=\footnotesize,color=black!85,anchor=north east]{\copyright{} 2010 V.\,Hänel, J.\,Plenz}
+  ++(0,.3cm)  node[font=\footnotesize,color=black!85,anchor=north east]{Version vom \today}
+  ;
   \draw
   (0,0) node[anchor=north west,text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   (linksoben)
@@ -220,7 +225,7 @@
 \draw[->,thick] (r.south) .. controls +(0,-1.4) and +(0,-1.4) .. node[fill=green!50,below=1pt]{checkout} (w.south);
 
   \draw (linksoben.north west)
-  ++(8cm,0) node[anchor=north west,text width=8cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  ++(8cm,0) node[anchor=north west,text width=8.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   (zweite-spalte)
   {
     \subsubsection*{Referenzen}
@@ -235,7 +240,7 @@
     \texttt{44ac95d}\ldots & Objekt-Referenz (Commit, Tree, etc.)\\
     \end{tabular}
   }
-  ++(0,-4.1cm) node[below right,text width=8cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  ++(0,-4.1cm) node[below right,text width=8.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   {
     \subsubsection*{Branches}
     \begin{tabular}{ll}
@@ -247,7 +252,7 @@
     \ldots\;\texttt{-{}-interactive} & Commits ordnen und anpassen\\
     \end{tabular}
   }
-  ++(0,-3.3cm) node[below right,text width=8cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  ++(0,-3.3cm) node[below right,text width=8.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   {
     \subsubsection*{Merge-Konflikte beheben}
     \begin{tabular}{ll}
@@ -259,7 +264,7 @@
     \texttt{git reset} & Merge abbrechen\\
     \end{tabular}
   }
-  ++(0,-3.4cm) node[below right,text width=8cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  ++(0,-3.4cm) node[below right,text width=8.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   {
     \subsubsection*{Remote Repositories}
     \begin{tabular}{ll}
@@ -268,7 +273,7 @@
     \texttt{git pull} \ldots & \ldots{} und gleich mergen \\
     \end{tabular}
   }
-  ++(0,-2.2cm) node[below right,text width=8cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  ++(0,-2.2cm) node[below right,text width=8.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   {
     \subsubsection*{Änderungen veröffentlichen}
     \begin{tabular}{ll}
@@ -279,11 +284,11 @@
                               & exportieren, für E-Mail-Versand \\
     \end{tabular}
   };
-  \draw [anchor=north west,draw=gray,dashed,rounded corners] ([yshift=-2cm]w.south west) rectangle +(27cm,-2.2cm)
+  \draw [anchor=north west,draw=gray,dashed,rounded corners] ([yshift=-2cm]w.south west) rectangle +(28.2cm,-2.2cm)
   ++(0,0) node[color=gray]{Platz für eigene Anmerkungen!}
-  ++(27cm,-1.8cm) node[color=black!85,anchor=north east]{\copyright{} 2010 V.\,Hänel, J.\,Plenz};
+  ;
   \draw (zweite-spalte.north west)
-  ++(8.5cm,0) node[below right,text width=10.3cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  ++(9.0cm,0) node[below right,text width=11.0cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   {
     \subsubsection*{Wichtige Begriffe}
     \begin{tabular}{ll}
@@ -292,7 +297,7 @@
                            & (z.\,B. \texttt{origin/master})\\
     \end{tabular}
   }
-  ++(0,-2.2cm) node[below right,text width=10.3cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  ++(0,-2.2cm) node[below right,text width=11.0cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   {
     \subsubsection*{Weitere praktische Kommandos}
     \begin{tabular}{ll}
@@ -303,7 +308,7 @@
     \texttt{git archive} & Tar-Ball des Projektes erzeugen\\
     \end{tabular}
   }
-  ++(0,-3.0cm) node[below right,text width=10.3cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  ++(0,-3.0cm) node[below right,text width=11.0cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   {
     \subsubsection*{Beispielhafte Programmaufrufe}
     \textbf{Einen Patch} der Änderungen erstellen, die zwischen dem Tag \texttt{v1.6} und
