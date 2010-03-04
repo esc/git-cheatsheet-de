@@ -252,6 +252,19 @@
 % Box für eigene Tips (später platzieren) TODO
 % \draw[fill=gray!10,dashed,rounded corners] (4cm,-14cm) rectangle (6cm,-16cm);
 
+% Als Visualisierung brauchbar?
+\begin{tikzpicture}
+\draw
+  (0,0)     node[rounded corners=2pt,fill=gray!25,minimum height=1cm] (w) {Working Directory}
+++(2,0)     node[single arrow,fill=red!50] {add}
+++(1.3,0)   node[rounded corners=2pt,fill=gray!25,minimum height=1cm] (i) {Index}
+++(1.3,0)   node[single arrow,fill=red!50] {checkin}
+++(1.8,0)   node[rounded corners=2pt,fill=gray!25,minimum height=1cm] (r) {Repository}
+;
+\draw[->,thick] (r.south) .. controls +(0,-1) and +(0,-1) .. (i.south);
+\draw[->,thick] (r.south) .. controls +(0,-1.4) and +(0,-1.4) .. node[fill=red!50,below=1pt]{checkout} (w.south);
+\end{tikzpicture}
+
 
 %%% }}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
