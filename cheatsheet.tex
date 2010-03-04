@@ -209,7 +209,17 @@
     \ldots\quad\texttt{-{}-amend} & Letzten Commit verbessern\\
     \end{tabular}
   }
-  ++(0,-3.8cm) node[below right,text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+% Als Visualisierung brauchbar?
+++(1.4cm,-4.3cm)     node[rounded corners=2pt,fill=gray!25,minimum height=1cm] (w) {Working Directory}
+++(1.7,0)   node[single arrow,fill=green!50] {add}
+++(1.1,0)   node[rounded corners=2pt,fill=gray!25,minimum height=1cm] (i) {Index}
+++(1.1,0)   node[single arrow,fill=green!50] {commit}
+++(1.7,0)   node[rounded corners=2pt,fill=gray!25,minimum height=1cm] (r) {Repository}
+;
+\draw[->,thick] (r.south) .. controls +(0,-1.2) and +(0,-1.2) .. node[fill=green!50,above=3pt]{reset} (i.south);
+\draw[->,thick] (r.south) .. controls +(0,-1.8) and +(0,-1.8) .. node[fill=green!50,below=1pt](co){checkout} (w.south);
+  \draw (co)
+  ++(-4.2cm,-0.8cm) node[below right,text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   {
     \subsubsection*{Index vs. Working Directory}
     \begin{tabular}{ll}
@@ -221,16 +231,7 @@
     \texttt{git checkout} & Index und \emph{WD} ändern\\
     \ldots\quad\texttt{-b \emph{branch}} & Zu neuem \emph{branch} wechseln\\
     \end{tabular}
-  }
-% Als Visualisierung brauchbar?
-++(1.4cm,-4.5cm)     node[rounded corners=2pt,fill=gray!25,minimum height=1cm] (w) {Working Directory}
-++(1.7,0)   node[single arrow,fill=green!50] {add}
-++(1.1,0)   node[rounded corners=2pt,fill=gray!25,minimum height=1cm] (i) {Index}
-++(1.1,0)   node[single arrow,fill=green!50] {commit}
-++(1.7,0)   node[rounded corners=2pt,fill=gray!25,minimum height=1cm] (r) {Repository}
-;
-\draw[->,thick] (r.south) .. controls +(0,-1) and +(0,-1) .. node[fill=green!50,above=3pt]{reset} (i.south);
-\draw[->,thick] (r.south) .. controls +(0,-1.4) and +(0,-1.4) .. node[fill=green!50,below=1pt]{checkout} (w.south);
+  };
 
   \draw (linksoben.north west)
   ++(8cm,0) node[anchor=north west,text width=8.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
@@ -292,7 +293,8 @@
                               & exportieren, für E-Mail-Versand \\
     \end{tabular}
   }
-  [anchor=north west,draw=gray,dashed,rounded corners] ++(0,-3.3cm) rectangle +(20.3cm,-2.5cm)
+  % Eigene Anmerkungen
+  [anchor=north west,draw=gray,dashed,rounded corners] ++(0,-3.1cm) rectangle +(20.3cm,-2.7cm)
   ++(0,0) node[color=gray]{Platz für eigene Anmerkungen!}
   ;
   \draw (zweite-spalte.north west)
