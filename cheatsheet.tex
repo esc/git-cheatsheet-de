@@ -258,6 +258,26 @@
     \texttt{git reset} & Merge abbrechen\\
     \end{tabular}
   }
+  ++(0,-3.4cm) node[below right,text width=8cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  {
+    \subsubsection*{Remote Repositories}
+    \begin{tabular}{ll}
+    \texttt{git remote} & Remote Repositories verwalten \\
+    \texttt{git fetch} \ldots & Neue Commits herunterladen \\
+    \texttt{git pull} \ldots & \ldots{} und gleich mergen \\
+    \end{tabular}
+  }
+  ++(0,-2.2cm) node[below right,text width=8cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  {
+    \subsubsection*{Änderungen veröffentlichen}
+    \begin{tabular}{ll}
+    \texttt{git push} & Commits hochladen \\
+    \texttt{git tag} & Commit markieren (z.\,B.\\
+                     & für eine neue Version)\\
+    \texttt{git format-patch} & Änderungen im Patch-Format\\
+                              & exportieren, für E-Mail-Versand \\
+    \end{tabular}
+  }
   ;
 \end{tikzpicture}
 % Box für eigene Tips (später platzieren) TODO
