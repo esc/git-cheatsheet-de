@@ -159,7 +159,8 @@
 
 \begin{tikzpicture}
   \draw
-  (0,0) node[text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  (0,0) node[anchor=north west,text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  (linksoben)
   {
     \subsubsection*{Repositories klonen oder erstellen}
     \begin{tabular}{ll}
@@ -172,7 +173,7 @@
     \texttt{git commit} &
     \end{tabular}
   }
-  ++(0,-1.9cm) node[below,text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  ++(0,-3.5cm) node[below right,text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   {
     \subsubsection*{Änderungen untersuchen}
     \begin{tabular}{ll}
@@ -184,7 +185,7 @@
     \texttt{tig} & Curses-Frontend für Git
     \end{tabular}
   }
-  ++(0,-3.5cm) node[below,text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  ++(0,-3.4cm) node[below right,text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   {
     \subsubsection*{Nächsten Commit vorbereiten}
     \begin{tabular}{ll}
@@ -196,7 +197,7 @@
     \ldots\quad\texttt{-{}-amend} & Letzten Commit verbessern\\
     \end{tabular}
   }
-  ++(0,-3.5cm) node[below,text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  ++(0,-3.3cm) node[below right,text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   {
     \subsubsection*{Index vs. Working Directory}
     \begin{tabular}{ll}
@@ -207,9 +208,19 @@
                                   & \emph{Working Dir.} unverändert\\
     \texttt{git checkout} & Index und \emph{WD} ändern\\
     \end{tabular}
-  };
-  \draw
-  (8cm,-8pt) node[text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  }
+% Als Visualisierung brauchbar?
+++(1.4cm,-4.1cm)     node[rounded corners=2pt,fill=gray!25,minimum height=1cm] (w) {Working Directory}
+++(1.7,0)   node[single arrow,fill=green!50] {add}
+++(1.1,0)   node[rounded corners=2pt,fill=gray!25,minimum height=1cm] (i) {Index}
+++(1.1,0)   node[single arrow,fill=green!50] {checkin}
+++(1.7,0)   node[rounded corners=2pt,fill=gray!25,minimum height=1cm] (r) {Repository}
+;
+\draw[->,thick] (r.south) .. controls +(0,-1) and +(0,-1) .. (i.south);
+\draw[->,thick] (r.south) .. controls +(0,-1.4) and +(0,-1.4) .. node[fill=green!50,below=1pt]{checkout} (w.south);
+
+  \draw (linksoben.north west)
+  ++(8cm,0) node[anchor=north west,text width=8cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   {
     \subsubsection*{Referenzen}
     \begin{tabular}{ll}
@@ -223,7 +234,7 @@
     \texttt{44ac95d}\ldots & Objekt-Referenz (Commit, Tree, etc.)\\
     \end{tabular}
   }
-  ++(0,-2.1cm) node[below,text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  ++(0,-4.1cm) node[below right,text width=8cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   {
     \subsubsection*{Branches}
     \begin{tabular}{ll}
@@ -235,7 +246,7 @@
     \ldots\;\texttt{-{}-interactive} & Commits ordnen und anpassen\\
     \end{tabular}
   }
-  ++(0,-3.3cm) node[below,text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  ++(0,-3.3cm) node[below right,text width=8cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   {
     \subsubsection*{Merge-Konflikte beheben}
     \begin{tabular}{ll}
@@ -251,19 +262,6 @@
 \end{tikzpicture}
 % Box für eigene Tips (später platzieren) TODO
 % \draw[fill=gray!10,dashed,rounded corners] (4cm,-14cm) rectangle (6cm,-16cm);
-
-% Als Visualisierung brauchbar?
-\begin{tikzpicture}
-\draw
-  (0,0)     node[rounded corners=2pt,fill=gray!25,minimum height=1cm] (w) {Working Directory}
-++(2,0)     node[single arrow,fill=red!50] {add}
-++(1.3,0)   node[rounded corners=2pt,fill=gray!25,minimum height=1cm] (i) {Index}
-++(1.3,0)   node[single arrow,fill=red!50] {checkin}
-++(1.8,0)   node[rounded corners=2pt,fill=gray!25,minimum height=1cm] (r) {Repository}
-;
-\draw[->,thick] (r.south) .. controls +(0,-1) and +(0,-1) .. (i.south);
-\draw[->,thick] (r.south) .. controls +(0,-1.4) and +(0,-1.4) .. node[fill=red!50,below=1pt]{checkout} (w.south);
-\end{tikzpicture}
 
 
 %%% }}}
