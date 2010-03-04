@@ -158,8 +158,8 @@
 
 
 \begin{tikzpicture}
-  \draw (0,1) node[anchor=north west,font=\Huge\bf\selectfont]{Git -- der Spickzettel}
-  (.2cm,.3cm) -- (28.2cm,.3cm)
+  \draw (0,1) node[anchor=north west,font=\Huge\bf\fontfamily{phv}\selectfont]{Git -- der Spickzettel}
+  (.1cm,.3cm) -- (28.2cm,.3cm)
   ([xshift=1mm]28.2cm,.7cm) node[font=\footnotesize,color=black!85,anchor=north east]{\copyright{} 2010 V.\,Hänel, J.\,Plenz}
   ++(0,.3cm)  node[font=\footnotesize,color=black!85,anchor=north east]{Version vom \today}
   ;
@@ -178,19 +178,25 @@
     \texttt{git commit} &
     \end{tabular}
   }
-  ++(0,-3.5cm) node[below right,text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  ++(0,-3.6cm) node[below right,text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   {
     \subsubsection*{Änderungen untersuchen}
+    \hspace{1mm}
+    \begin{minipage}{7.5cm}
+    Jedes der Kommandos akzeptiert optional als Argument eine
+    \emph{Referenz} auf einen oder mehrere Commits (siehe zweite
+    Spalte).
+    \end{minipage}
     \begin{tabular}{ll}
     \texttt{git log} & Zusammenfassung der Änderungen\\
-    \texttt{git show} & Detaillierte Ansicht von Commit \emph{id}\\
+    \texttt{git show} & Detaillierte Ansicht eines Commits\\
     \texttt{git diff} & Unterschiede mit \texttt{diff} anzeigen\\
     \texttt{git blame} & Wer hat welche Zeile geändert?\\
     \texttt{gitk -{}-all} & Grafische Ansicht\\
     \texttt{tig} & Curses-Frontend für Git
     \end{tabular}
   }
-  ++(0,-3.4cm) node[below right,text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  ++(0,-4.6cm) node[below right,text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   {
     \subsubsection*{Nächsten Commit vorbereiten}
     \begin{tabular}{ll}
@@ -199,10 +205,11 @@
     \texttt{git rm} & Datei löschen\\
     \texttt{git mv} & Datei verschieben\\
     \texttt{git commit} & Commit erstellen\\
+    \ldots\quad\texttt{-m '\emph{msg}'} & mit Beschreibung \emph{msg}\\
     \ldots\quad\texttt{-{}-amend} & Letzten Commit verbessern\\
     \end{tabular}
   }
-  ++(0,-3.3cm) node[below right,text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  ++(0,-3.8cm) node[below right,text width=7.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   {
     \subsubsection*{Index vs. Working Directory}
     \begin{tabular}{ll}
@@ -212,17 +219,18 @@
     \texttt{git reset \emph{ref}} & Den Index auf \emph{ref} setzen;\\
                                   & \emph{Working Dir.} unverändert\\
     \texttt{git checkout} & Index und \emph{WD} ändern\\
+    \ldots\quad\texttt{-b \emph{branch}} & Zu neuem \emph{branch} wechseln\\
     \end{tabular}
   }
 % Als Visualisierung brauchbar?
-++(1.4cm,-4.1cm)     node[rounded corners=2pt,fill=gray!25,minimum height=1cm] (w) {Working Directory}
+++(1.4cm,-4.5cm)     node[rounded corners=2pt,fill=gray!25,minimum height=1cm] (w) {Working Directory}
 ++(1.7,0)   node[single arrow,fill=green!50] {add}
 ++(1.1,0)   node[rounded corners=2pt,fill=gray!25,minimum height=1cm] (i) {Index}
-++(1.1,0)   node[single arrow,fill=green!50] {checkin}
+++(1.1,0)   node[single arrow,fill=green!50] {commit}
 ++(1.7,0)   node[rounded corners=2pt,fill=gray!25,minimum height=1cm] (r) {Repository}
 ;
-\draw[->,thick] (r.south) .. controls +(0,-1) and +(0,-1) .. (i.south);
-\draw[->,thick] (r.south) .. controls +(0,-1.4) and +(0,-1.4) .. node[fill=green!50,below=1pt]{checkout, reset} (w.south);
+\draw[->,thick] (r.south) .. controls +(0,-1) and +(0,-1) .. node[fill=green!50,above=3pt]{reset} (i.south);
+\draw[->,thick] (r.south) .. controls +(0,-1.4) and +(0,-1.4) .. node[fill=green!50,below=1pt]{checkout} (w.south);
 
   \draw (linksoben.north west)
   ++(8cm,0) node[anchor=north west,text width=8.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
@@ -264,7 +272,7 @@
     \texttt{git reset} & Merge abbrechen\\
     \end{tabular}
   }
-  ++(0,-3.4cm) node[below right,text width=8.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  ++(0,-3.5cm) node[below right,text width=8.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   {
     \subsubsection*{Remote Repositories}
     \begin{tabular}{ll}
@@ -273,7 +281,7 @@
     \texttt{git pull} \ldots & \ldots{} und gleich mergen \\
     \end{tabular}
   }
-  ++(0,-2.2cm) node[below right,text width=8.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  ++(0,-2.3cm) node[below right,text width=8.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   {
     \subsubsection*{Änderungen veröffentlichen}
     \begin{tabular}{ll}
@@ -283,8 +291,8 @@
     \texttt{git format-patch} & Änderungen im Patch-Format\\
                               & exportieren, für E-Mail-Versand \\
     \end{tabular}
-  };
-  \draw [anchor=north west,draw=gray,dashed,rounded corners] ([yshift=-2cm]w.south west) rectangle +(28.2cm,-2.2cm)
+  }
+  [anchor=north west,draw=gray,dashed,rounded corners] ++(0,-3.3cm) rectangle +(20.3cm,-2.5cm)
   ++(0,0) node[color=gray]{Platz für eigene Anmerkungen!}
   ;
   \draw (zweite-spalte.north west)
@@ -334,9 +342,9 @@ $ git merge feature\end{verbatim}
 (pick durch edit ersetzen, speichern)
 $ git reset HEAD^
 $ git add -p
-$ git checkin -m 'Erster Teil'
+$ git commit -m 'Erster Teil'
 $ git add -u
-$ git checkin -m 'Zweiter Teil'\end{verbatim}
+$ git commit -m 'Zweiter Teil'\end{verbatim}
   }
   ;
 \end{tikzpicture}
