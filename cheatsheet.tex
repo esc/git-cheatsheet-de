@@ -221,6 +221,7 @@
 
   \draw (linksoben.north west)
   ++(8cm,0) node[anchor=north west,text width=8cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  (zweite-spalte)
   {
     \subsubsection*{Referenzen}
     \begin{tabular}{ll}
@@ -281,6 +282,52 @@
   \draw [anchor=north west,draw=gray,dashed,rounded corners] ([yshift=-2cm]w.south west) rectangle +(27cm,-2.2cm)
   ++(0,0) node[color=gray]{Platz für eigene Anmerkungen!}
   ++(27cm,-1.8cm) node[color=black!85,anchor=north east]{\copyright{} 2010 V.\,Hänel, J.\,Plenz};
+  \draw (zweite-spalte.north west)
+  ++(8.5cm,0) node[below right,text width=10.3cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  {
+    \subsubsection*{Wichtige Begriffe}
+    \begin{tabular}{ll}
+    Remote Tracking Branch & Lokaler Branch, der immer auf dem gleichen \\
+                           & Stand ist der eines anderen Repositories\\
+                           & (z.\,B. \texttt{origin/master})\\
+    \end{tabular}
+  }
+  ++(0,-2.2cm) node[below right,text width=10.3cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  {
+    \subsubsection*{Weitere praktische Kommandos}
+    \begin{tabular}{ll}
+    \texttt{git grep \emph{expr}} & In allen Dateien nach \emph{expr} suchen\\
+    \texttt{git stash} & Änderungen temporär in den Hintergrund schieben\\
+    \texttt{git clean} & Nicht von Git verwaltete Dateien löschen\\
+    \texttt{git bisect} & Commit finden, der ein bestimmtes Problem verursacht\\
+    \texttt{git archive} & Tar-Ball des Projektes erzeugen\\
+    \end{tabular}
+  }
+  ++(0,-3.0cm) node[below right,text width=10.3cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  {
+    \subsubsection*{Beispielhafte Programmaufrufe}
+    \textbf{Einen Patch} der Änderungen erstellen, die zwischen dem Tag \texttt{v1.6} und
+    dem Branch \emph{neues-feature} bestehen:\\
+    \texttt{\$ git diff v1.6..neues-feature > meine-aenderungen.patch}\\[.7em]
+
+    \textbf{ASCII-Baumdiagramm} der Commits anzeigen:\\
+    \texttt{\$ git log -{}-graph -{}-pretty=format:'\%h \%s (\%cr) <\%an>'}\\[.7em]
+
+    \textbf{Throw-Away-Integration:} Testen, ob ein Merge
+    funktionieren würde, ohne tatsächlich \texttt{master} zu ändern:
+    \begin{verbatim}$ git checkout -b integrate master
+$ git merge feature\end{verbatim}
+    \textbf{Den letzten Commit in zwei kleinere aufteilen} (siehe auch
+    \texttt{man git-rebase}):
+    \begin{verbatim}$ git rebase -i HEAD^
+(pick durch edit ersetzen, speichern)
+$ git reset HEAD^
+$ git add -p
+$ git checkin -m 'Erster Teil'
+$ git add -u
+$ git checkin -m 'Zweiter Teil'\end{verbatim}
+  }
+  ;
 \end{tikzpicture}
 
 
