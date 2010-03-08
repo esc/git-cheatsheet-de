@@ -273,7 +273,7 @@
     \texttt{git reset} & Merge abbrechen\\
     \end{tabular}
   }
-  ++(0,-3.5cm) node[below right,text width=8.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  ++(0,-3.4cm) node[below right,text width=8.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   {
     \subsubsection*{Remote Repositories}
     \begin{tabular}{ll}
@@ -300,15 +300,6 @@
   \draw (zweite-spalte.north west)
   ++(9.0cm,0) node[below right,text width=11.0cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   {
-    \subsubsection*{Wichtige Begriffe}
-    \begin{tabular}{ll}
-    Remote Tracking Branch & Lokaler Branch, der immer auf dem gleichen \\
-                           & Stand ist wie der eines anderen Repositories\\
-                           & (z.\,B. \texttt{origin/master})\\
-    \end{tabular}
-  }
-  ++(0,-2.2cm) node[below right,text width=11.0cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
-  {
     \subsubsection*{Weitere praktische Kommandos}
     \begin{tabular}{ll}
     \texttt{git grep \emph{expr}} & In allen Dateien nach \emph{expr} suchen\\
@@ -319,15 +310,22 @@
     \texttt{git shortlog} & Anzahl der Commits zählen (per \texttt{-s -n})\\
     \end{tabular}
   }
-  ++(0,-3.4cm) node[below right,text width=11.0cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
+  ++(0,-3.5cm) node[below right,text width=11.0cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
   {
     \subsubsection*{Beispielhafte Programmaufrufe}
+    \textbf{Einen leeren Commit erstellen}, praktisch z.\,B. für den
+      \emph{initial commit}:\\
+      \texttt{\$ git commit -{}-allow-empty -m 'leer'}\\[.8em]
+
+    Herausfinden, durch welchen Commit eine \textbf{Datei gelöscht} wurde:\\
+      \texttt{\$ git log -{}-diff-filter=D \emph{datei}}\\[.7em]
+
     \textbf{Einen Patch} der Änderungen erstellen, die zwischen dem Tag \texttt{v1.6} und
     dem Branch \emph{neues-feature} bestehen:\\
-    \texttt{\$ git diff v1.6..neues-feature > meine-aenderungen.patch}\\[.7em]
+    \texttt{\$ git diff v1.6..neues-feature > meine-aenderungen.patch}\\[.8em]
 
     \textbf{ASCII-Baumdiagramm} der Commits anzeigen:\\
-    \texttt{\$ git log -{}-graph -{}-pretty=format:'\%h \%s (\%cr) <\%an>'}\\[.7em]
+    \texttt{\$ git log -{}-graph -{}-pretty=format:'\%h \%s (\%cr) <\%an>'}\\[.8em]
 
     \textbf{Alle unnötigen Dateien löschen}, Änderungen verwerfen und
     mit einer "`sauberen"' Version von \emph{master} starten:
