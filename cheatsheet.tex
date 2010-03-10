@@ -240,8 +240,8 @@
     \subsubsection*{Referenzen}
     \begin{tabular}{ll}
     \texttt{HEAD} & Letzter Commit\\
-    \texttt{HEAD\^{}} & Vorletzter Commit\\
-    \texttt{HEAD\~{}\emph{n}} & \emph{n}-ter letzter Commit\\
+    \texttt{HEAD$^\wedge$} & Vorletzter Commit\\
+    \texttt{HEAD\texttildelow\emph{n}} & \emph{n}-ter letzter Commit\\
     \texttt{master} & Branch-Name\\
     \texttt{v2.6.17} & Tag-Name (z.\,B. für Versionierung)\\
     \texttt{a..b} & Alle Commits zwischen \texttt{a} und \texttt{b}\\
@@ -270,7 +270,7 @@
     \texttt{gitk -{}-merge} & Relevante Commits untersuchen\\
     \texttt{git mergetool} & Three-Way-Merge\\
     \texttt{git add}, \texttt{commit} \ldots & Änderungen aufnehmen\\
-    \texttt{git reset} & Merge abbrechen\\
+    \texttt{git reset -{}-hard} & Merge abbrechen\\
     \end{tabular}
   }
   ++(0,-3.4cm) node[below right,text width=8.5cm,rounded corners,fill=gray!15,inner sep=1ex,drop shadow]
