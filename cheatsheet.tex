@@ -324,8 +324,8 @@
     dem Branch \emph{neues-feature} bestehen:\\
     \texttt{\$ git diff v1.6..neues-feature > meine-aenderungen.patch}\\[.8em]
 
-    \textbf{ASCII-Baumdiagramm} der Commits anzeigen:\\
-    \texttt{\$ git log -{}-graph -{}-pretty=format:'\%h \%s (\%cr) <\%an>'}\\[.8em]
+    \textbf{ASCII-Baumdiagramm} aller Commits anzeigen:\\
+    \texttt{\$ git log -{}-graph -{}-oneline -{}-decorate -{}-all}\\[.8em]
 
     \textbf{Alle unnötigen Dateien löschen}, Änderungen verwerfen und
     mit einer "`sauberen"' Version von \emph{master} starten:
