@@ -1,2 +1,27 @@
-Sehr gutes und ausführliches Tutorial zu PGF/TikZ:
+Git -- der Spickzettel
+======================
+
+Erstellt im Zusammenhang mit unserem Git-Workshop:
+https://github.com/Feh/git-workshop
+
+
+Autoren
+-------
+
+Julius Plenz <julius@plenz.com>
+Valentin Haenel <valentin.haenel@gmx.de>
+
+
+Lizenz
+------
+
+Veröffentlicht unter der CreativeCommons-Lizenz 3.0 (By,Nc,Sa):
+http://creativecommons.org/licenses/by-nc-sa/3.0/de/
+
+
+Dokumentation
+-------------
+
+Der Spickzettel wurde mit PGF/TikZ erstellt. Sehr gutes und ausführliches
+Tutorial zu PGF/TikZ befindet sich unter:
 http://mirror.ctan.org/graphics/pgf/base/doc/generic/pgf/pgfmanual.pdf
